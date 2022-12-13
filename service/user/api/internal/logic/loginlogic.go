@@ -5,6 +5,7 @@ import (
 	"context"
 	"errors"
 	"github.com/golang-jwt/jwt/v4"
+	"github.com/zeromicro/go-zero/core/stores/sqlx"
 	"strings"
 	"time"
 
@@ -53,6 +54,12 @@ func (l *LoginLogic) Login(req *types.LoginReq) (*types.LoginReply, error) {
 		return nil, err
 	}
 	// ---end---
+
+	// 采用事务处理
+	l.svcCtx.UserModel.TxCtx(l.ctx, func(ctx context.Context, session sqlx.Session) error {
+		// 所有的逻辑在这个地方进行处理就可以了
+		return nil
+	})
 
 	return &types.LoginReply{
 		Id:           userInfo.Id,

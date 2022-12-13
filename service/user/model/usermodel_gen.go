@@ -33,6 +33,7 @@ type (
 		FindOneByNumber(ctx context.Context, number string) (*User, error)
 		Update(ctx context.Context, data *User) error
 		Delete(ctx context.Context, id int64) error
+		TxCtx(ctx context.Context, fn func(ctx context.Context, session sqlx.Session) error) error
 	}
 
 	defaultUserModel struct {
@@ -120,6 +121,16 @@ func (m *defaultUserModel) Insert(ctx context.Context, data *User) (sql.Result, 
 	return ret, err
 }
 
+func (m *defaultUserModel) InsertTx(ctx context.Context, session sqlx.Session, data *User) (sql.Result, error) {
+	bookUserIdKey := fmt.Sprintf("%s%v", cacheBookUserIdPrefix, data.Id)
+	bookUserNumberKey := fmt.Sprintf("%s%v", cacheBookUserNumberPrefix, data.Number)
+	ret, err := m.ExecCtx(ctx, func(ctx context.Context, conn sqlx.SqlConn) (result sql.Result, err error) {
+		query := fmt.Sprintf("insert into %s (%s) values (?, ?, ?, ?)", m.table, userRowsExpectAutoSet)
+		return session.ExecCtx(ctx, query, data.Number, data.Name, data.Password, data.Gender)
+	}, bookUserIdKey, bookUserNumberKey)
+	return ret, err
+}
+
 func (m *defaultUserModel) Update(ctx context.Context, newData *User) error {
 	data, err := m.FindOne(ctx, newData.Id)
 	if err != nil {
@@ -146,4 +157,25 @@ func (m *defaultUserModel) queryPrimary(ctx context.Context, conn sqlx.SqlConn, 
 
 func (m *defaultUserModel) tableName() string {
 	return m.table
+}
+
+// 通过这种方式来实现事务
+// 但是这种方式，感觉还是有点麻烦，我们希望是在logic层来做事务处理
+// 所以我们可以抽取一个函数处理
+func (m *defaultUserModel) tx(ctx context.Context, conn sqlx.SqlConn, v, primary interface{}) error {
+	return m.TransactCtx(ctx, func(ctx context.Context, session sqlx.Session) error {
+		//  1.操作1
+
+		//  2.操作2
+
+		// 如果以上步骤有一个出现了error，就会回滚
+		return nil
+	})
+}
+
+// 统一事务处理
+func (m *defaultUserModel) TxCtx(ctx context.Context, fn func(ctx context.Context, session sqlx.Session) error) error {
+	return m.TransactCtx(ctx, func(ctx context.Context, s sqlx.Session) error {
+		return fn(ctx, s)
+	})
 }
