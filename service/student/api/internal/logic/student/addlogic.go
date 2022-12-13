@@ -26,6 +26,8 @@ func NewAddLogic(ctx context.Context, svcCtx *svc.ServiceContext) *AddLogic {
 }
 
 func (l *AddLogic) Add(req *types.Student) (resp *types.Result, err error) {
+
+	logx.Info("add student.....")
 	// todo: add your logic here and delete this line
 	m := &model.Student{Name: req.Name}
 	result, err := l.svcCtx.StudentModel.Insert(l.ctx, m)
