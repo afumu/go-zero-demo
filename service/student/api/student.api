@@ -1,0 +1,48 @@
+type (
+	LoginRep {
+		Id         int64  `json:"id"`
+		Name       string `json:"name"`
+		CreateTime int64  `json:"create_time"`
+		UpdateTime int64  `json:"UpdateTime"`
+	}
+
+	Result {
+		Success string `json:"success"`
+		Data    string `json:"data"`
+	}
+
+	Student {
+		Name string `json:"name"`
+	}
+
+	StudentIdParam {
+		Id int64 `form:"id"`
+	}
+)
+
+@server(
+	group:student
+	middleware: TestMiddleware
+)
+
+service student-api {
+	@handler list
+	get /student/list returns (LoginRep)
+	
+	@handler add
+	post /student/add (Student) returns (Result)
+	
+	@handler queryById
+	get /student/queryById (StudentIdParam) returns (Result)
+	
+	@handler edit
+	put /student/edit (Student) returns (Result)
+	
+	@handler delete
+	get /student/delete (StudentIdParam) returns (Result)
+}
+
+service student-api {
+	@handler listPage
+	get /student/listPage returns (LoginRep)
+}
