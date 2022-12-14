@@ -2,7 +2,7 @@ package svc
 
 import (
 	"book/service/user/api/internal/config"
-	"book/service/user/model"
+	"book/service/user/api/model"
 	"github.com/zeromicro/go-zero/core/stores/sqlx"
 )
 
@@ -19,6 +19,6 @@ func NewServiceContext(c config.Config) *ServiceContext {
 	// 所有的和数据打交道的可以在这里增加配置
 	return &ServiceContext{
 		Config:    c,
-		UserModel: model.NewUserModel(conn, c.CacheRedis),
+		UserModel: model.NewUserModel(conn),
 	}
 }

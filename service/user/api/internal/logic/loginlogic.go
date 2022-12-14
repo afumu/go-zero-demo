@@ -1,7 +1,7 @@
 package logic
 
 import (
-	"book/service/user/model"
+	"book/service/user/api/model"
 	"context"
 	"errors"
 	"github.com/golang-jwt/jwt/v4"

@@ -14,3 +14,21 @@ type LoginReply struct {
 	AccessExpire int64  `json:"accessExpire"`
 	RefreshAfter int64  `json:"refreshAfter"`
 }
+
+type UserParam struct {
+	Username string `form:"username"`
+}
+
+type User struct {
+	Id         int64  `json:"id"`
+	Number     string `json:"number"`   // 学号
+	Name       string `json:"name"`     // 用户名称
+	Password   string `json:"password"` // 用户密码
+	Gender     string `json:"gender"`   // 男｜女｜未公开
+	CreateTime int64  `json:"create_time"`
+	UpdateTime int64  `json:"update_time"`
+}
+
+type Result struct {
+	User []*User `json:"user"`
+}

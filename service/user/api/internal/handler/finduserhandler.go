@@ -9,17 +9,16 @@ import (
 	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
-func loginHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
+func findUserHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.LoginReq
+		var req types.UserParam
 		if err := httpx.Parse(r, &req); err != nil {
 			httpx.Error(w, err)
 			return
 		}
 
-		// 创建logic服务
-		l := logic.NewLoginLogic(r.Context(), svcCtx)
-		resp, err := l.Login(&req)
+		l := logic.NewFindUserLogic(r.Context(), svcCtx)
+		resp, err := l.FindUser(&req)
 		if err != nil {
 			httpx.Error(w, err)
 		} else {

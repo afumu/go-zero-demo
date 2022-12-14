@@ -19,4 +19,24 @@ func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 			},
 		},
 	)
+
+	server.AddRoutes(
+		[]rest.Route{
+			{
+				Method:  http.MethodGet,
+				Path:    "/user/findUser",
+				Handler: findUserHandler(serverCtx),
+			},
+		},
+	)
+
+	server.AddRoutes(
+		[]rest.Route{
+			{
+				Method:  http.MethodGet,
+				Path:    "/user/findAllUser",
+				Handler: findAllUserHandler(serverCtx),
+			},
+		},
+	)
 }
