@@ -3,8 +3,8 @@ package logic
 import (
 	"context"
 
-	"book/service/search/api/internal/svc"
 	"github.com/zeromicro/go-zero/core/logx"
+	"go-zero-demo/service/search/api/internal/svc"
 )
 
 type PingLogic struct {

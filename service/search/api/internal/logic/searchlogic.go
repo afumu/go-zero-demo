@@ -3,8 +3,8 @@ package logic
 import (
 	"context"
 
-	"book/service/search/api/internal/svc"
-	"book/service/search/api/internal/types"
+	"go-zero-demo/service/search/api/internal/svc"
+	"go-zero-demo/service/search/api/internal/types"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

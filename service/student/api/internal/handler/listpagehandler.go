@@ -3,9 +3,9 @@ package handler
 import (
 	"net/http"
 
-	"book/service/student/api/internal/logic"
-	"book/service/student/api/internal/svc"
 	"github.com/zeromicro/go-zero/rest/httpx"
+	"go-zero-demo/service/student/api/internal/logic"
+	"go-zero-demo/service/student/api/internal/svc"
 )
 
 func listPageHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {

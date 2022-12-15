@@ -1,7 +1,7 @@
 package svc
 
 import (
-	"book/service/search/api/internal/config"
+	"go-zero-demo/service/search/api/internal/config"
 )
 
 type ServiceContext struct {

@@ -3,9 +3,9 @@ package handler
 import (
 	"net/http"
 
-	"book/service/user/api/internal/logic"
-	"book/service/user/api/internal/svc"
 	"github.com/zeromicro/go-zero/rest/httpx"
+	"go-zero-demo/service/user/api/internal/logic"
+	"go-zero-demo/service/user/api/internal/svc"
 )
 
 func findAllUserHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {

@@ -4,9 +4,9 @@ import (
 	"flag"
 	"fmt"
 
-	"book/service/user/api/internal/config"
-	"book/service/user/api/internal/handler"
-	"book/service/user/api/internal/svc"
+	"go-zero-demo/service/user/api/internal/config"
+	"go-zero-demo/service/user/api/internal/handler"
+	"go-zero-demo/service/user/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/rest"

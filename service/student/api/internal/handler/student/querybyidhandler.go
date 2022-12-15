@@ -3,10 +3,10 @@ package student
 import (
 	"net/http"
 
-	"book/service/student/api/internal/logic/student"
-	"book/service/student/api/internal/svc"
-	"book/service/student/api/internal/types"
 	"github.com/zeromicro/go-zero/rest/httpx"
+	"go-zero-demo/service/student/api/internal/logic/student"
+	"go-zero-demo/service/student/api/internal/svc"
+	"go-zero-demo/service/student/api/internal/types"
 )
 
 func QueryByIdHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {

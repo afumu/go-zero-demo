@@ -4,8 +4,8 @@ package handler
 import (
 	"net/http"
 
-	student "book/service/student/api/internal/handler/student"
-	"book/service/student/api/internal/svc"
+	student "go-zero-demo/service/student/api/internal/handler/student"
+	"go-zero-demo/service/student/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest"
 )

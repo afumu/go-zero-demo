@@ -1,12 +1,12 @@
 package student
 
 import (
-	"book/service/student/model"
 	"context"
 	"fmt"
+	"go-zero-demo/service/student/model"
 
-	"book/service/student/api/internal/svc"
-	"book/service/student/api/internal/types"
+	"go-zero-demo/service/student/api/internal/svc"
+	"go-zero-demo/service/student/api/internal/types"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

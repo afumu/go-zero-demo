@@ -3,10 +3,10 @@ package handler
 import (
 	"net/http"
 
-	"book/service/search/api/internal/logic"
-	"book/service/search/api/internal/svc"
-	"book/service/search/api/internal/types"
 	"github.com/zeromicro/go-zero/rest/httpx"
+	"go-zero-demo/service/search/api/internal/logic"
+	"go-zero-demo/service/search/api/internal/svc"
+	"go-zero-demo/service/search/api/internal/types"
 )
 
 func searchHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {

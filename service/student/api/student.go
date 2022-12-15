@@ -1,13 +1,13 @@
 package main
 
 import (
-	middleware "book/service/student/common"
 	"flag"
 	"fmt"
+	middleware "go-zero-demo/service/student/common"
 
-	"book/service/student/api/internal/config"
-	"book/service/student/api/internal/handler"
-	"book/service/student/api/internal/svc"
+	"go-zero-demo/service/student/api/internal/config"
+	"go-zero-demo/service/student/api/internal/handler"
+	"go-zero-demo/service/student/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/rest"

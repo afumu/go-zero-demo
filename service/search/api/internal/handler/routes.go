@@ -4,7 +4,7 @@ package handler
 import (
 	"net/http"
 
-	"book/service/search/api/internal/svc"
+	"go-zero-demo/service/search/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/rest"
 )

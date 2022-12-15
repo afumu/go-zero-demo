@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"book/service/user/api/internal/svc"
-	"book/service/user/api/internal/types"
+	"go-zero-demo/service/user/api/internal/svc"
+	"go-zero-demo/service/user/api/internal/types"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

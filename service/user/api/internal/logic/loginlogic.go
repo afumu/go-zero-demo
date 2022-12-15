@@ -1,16 +1,16 @@
 package logic
 
 import (
-	"book/service/user/api/model"
 	"context"
 	"errors"
 	"github.com/golang-jwt/jwt/v4"
 	"github.com/zeromicro/go-zero/core/stores/sqlx"
+	"go-zero-demo/service/user/api/model"
 	"strings"
 	"time"
 
-	"book/service/user/api/internal/svc"
-	"book/service/user/api/internal/types"
+	"go-zero-demo/service/user/api/internal/svc"
+	"go-zero-demo/service/user/api/internal/types"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

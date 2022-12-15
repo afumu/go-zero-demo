@@ -1,11 +1,11 @@
 package svc
 
 import (
-	"book/service/student/api/internal/config"
-	"book/service/student/api/internal/middleware"
-	"book/service/student/model"
 	"github.com/zeromicro/go-zero/core/stores/sqlx"
 	"github.com/zeromicro/go-zero/rest"
+	"go-zero-demo/service/student/api/internal/config"
+	"go-zero-demo/service/student/api/internal/middleware"
+	"go-zero-demo/service/student/model"
 )
 
 type ServiceContext struct {
